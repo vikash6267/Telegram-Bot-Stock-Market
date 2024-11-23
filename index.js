@@ -2,10 +2,13 @@ const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
 const { Worker, isMainThread, parentPort } = require('worker_threads');
 const { setIntervalAsync } = require('set-interval-async/dynamic');
+const { message } = require('telegraf/filters');
 
 // Telegram Bot API Token
 const TOKEN = '7659729955:AAERDXKjNjll6mMW7f2m5MLcjX1bmEqTtcM';
-const CHAT_ID = '1185704279';  // Replace with your target chat ID
+const CHAT_ID = '1185704279'; //viaksh
+// const CHAT_ID = '1593806971';  // aayush 
+// const CHAT_ID = '887980481';  // aayush 
 const api_keys = [
   '6b25a9637f399a23f63444bd09cd6fef3d6c259df750ad8004cc2e9948e79eec',
   'd68727dacaeb49c724dc4e38c59d024347d7a4bb208e64b1f4676954760799db',
@@ -41,6 +44,37 @@ let requirements = {};
 // Show requirements command
 bot.onText(/\/show/, (msg) => {
     bot.sendMessage(msg.chat.id, JSON.stringify(requirements, null, 4));
+});
+
+
+
+// Replace 'YOUR_BOT_TOKEN' with your actual bot token from BotFather
+
+bot.onText(/\/start/, (msg) => {
+    const chatId = msg.chat.id;
+
+    // Clear the requirements
+    requirements = {};
+
+    console.log(chatId);
+    bot.sendMessage(
+        chatId, 
+        `Welcome! All previous settings have been cleared.\n\nType /set item quantity(500), items2 quantity(1000) to set new requirements.`
+    );
+});
+
+bot.onText(/\/reset/, (msg) => {
+    const chatId = msg.chat.id;
+
+    // Clear the requirements
+    requirements = {};
+
+    console.log(`Requirements have been reset by user with chat ID: ${chatId}`);
+
+    bot.sendMessage(
+        chatId, 
+        `All previous settings have been cleared.\n\nYou can now set new requirements using:\n/set item quantity(500), items2 quantity(1000)`
+    );
 });
 
 // Set requirements command
@@ -164,7 +198,7 @@ async function messageSender() {
                 console.error("Error sending message:", error.message);
             }
         }
-    }, 4500);  // Adjust the interval time based on your requirement
+    }, 45000);  // Adjust the interval time based on your requirement
 }
 
 messageSender();  // Start the message sender
