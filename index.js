@@ -6,9 +6,9 @@ const { message } = require('telegraf/filters');
 
 // Telegram Bot API Token
 const TOKEN = '7659729955:AAERDXKjNjll6mMW7f2m5MLcjX1bmEqTtcM';
-const CHAT_ID = '1185704279'; //viaksh
+// const CHAT_ID = '1185704279'; //viaksh
 // const CHAT_ID = '1593806971';  // aayush 
-// const CHAT_ID = '887980481';  // aayush 
+const CHAT_ID = '887980481';  // client 
 const api_keys = [
   '6b25a9637f399a23f63444bd09cd6fef3d6c259df750ad8004cc2e9948e79eec',
   'd68727dacaeb49c724dc4e38c59d024347d7a4bb208e64b1f4676954760799db',
@@ -198,7 +198,7 @@ async function messageSender() {
                 console.error("Error sending message:", error.message);
             }
         }
-    }, 45000);  // Adjust the interval time based on your requirement
+    }, 90000);  // Adjust the interval time based on your requirement
 }
 
 messageSender();  // Start the message sender
