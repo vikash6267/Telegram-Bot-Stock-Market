@@ -5,10 +5,10 @@ const { setIntervalAsync } = require('set-interval-async/dynamic');
 const { message } = require('telegraf/filters');
 
 // Telegram Bot API Token
-const TOKEN = '7659729955:AAERDXKjNjll6mMW7f2m5MLcjX1bmEqTtcM';
+const TOKEN = '7691880955:AAHPw6FxY0DEV5Ul04w3EXWTJaLcWP8QfMg';
 // const CHAT_ID = '1185704279'; //viaksh
 // const CHAT_ID = '1593806971';  // aayush 
-const CHAT_ID = '887980481';  // client 
+const CHAT_ID = '6143069070';  // client 
 const api_keys = [
   '6b25a9637f399a23f63444bd09cd6fef3d6c259df750ad8004cc2e9948e79eec',
   'd68727dacaeb49c724dc4e38c59d024347d7a4bb208e64b1f4676954760799db',
@@ -73,7 +73,7 @@ bot.onText(/\/reset/, (msg) => {
 
     bot.sendMessage(
         chatId, 
-        `All previous settings have been cleared.\n\nYou can now set new requirements using:\n/set item quantity(500), items2 quantity(1000)`
+        `All previous settings have been cleared.\n\nYou can now set new requirements using:\n/set ticker price(500), ticker price(1000)`
     );
 });
 
