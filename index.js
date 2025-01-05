@@ -3,10 +3,11 @@ const axios = require("axios");
 const { setIntervalAsync } = require("set-interval-async/dynamic");
 
 // Telegram Bot API Token
-const TOKEN = "7691880955:AAHPw6FxY0DEV5Ul04w3EXWTJaLcWP8QfMg";
+const TOKEN = "7923081083:AAGzvyosGgFgCi1eogma5eP7Y_tX6pIbiWo";
 // const CHAT_ID = "1185704279"; //viaksh
 // const CHAT_ID = '1593806971';  // aayush
 const CHAT_ID = '6143069070';  // client
+
 const api_keys = [
   "6b25a9637f399a23f63444bd09cd6fef3d6c259df750ad8004cc2e9948e79eec",
   "676f7173d23d405ae14a5853722b2e6fb90f170bdec5984f35c48f5b1936de11",
@@ -91,6 +92,8 @@ const api_keys = [
   "aaa4d7c5bb3d5218a3aa2d944c50dbacfc94def3077a5dd600a66f3b6154ac31",
   "0fbc8e4651b6bef2ba67170d5bb921be6af5258a3c44aee36bcc31611e448042",
 ];
+
+
 const api_keys_gen = {
   [Symbol.iterator]() {
     let index = 0; // Start at the first index
@@ -120,7 +123,7 @@ bot.onText(/\/show/, (msg) => {
 
 bot.onText(/\/start/, (msg) => {
     const chatId = msg.chat.id;
-  
+  console.log(chatId)
     requirements = {}
     bot.sendMessage(
       chatId,
